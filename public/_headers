@@ -1,5 +1,5 @@
 # Cabeçalhos para a Cloudflare (Pages ou Workers) e Netlify.
-# O GitHub Pages ignora este arquivo: lá não há como definir cabeçalhos.
+# O GitHub Pages ignora este arquivo (lá não há como definir cabeçalhos).
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff

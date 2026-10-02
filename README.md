@@ -31,8 +31,7 @@ npm run dev
 
 O build é um site estático (SPA). Qualquer host estático serve, desde que redirecione rotas desconhecidas para `index.html`.
 
-- **Cloudflare Pages**: conecte o repositório (preset _React (Vite)_, build `npm run build`, saída `dist`). `public/_headers` define CSP e cache. O fallback de rotas é automático porque o build não tem `404.html`.
-- **GitHub Pages**: ative _Settings → Pages → Source: GitHub Actions_. O workflow **Deploy GitHub Pages** publica a cada push na `main` e copia `index.html` para `404.html`. Com domínio próprio o site fica na raiz; sem domínio, crie a variável de repositório `BASE_PATH=/<nome-do-repo>/`. O GitHub Pages não permite cabeçalhos HTTP, então a CSP não se aplica lá.
+- **Cloudflare** (produção atual, Workers ou Pages): conecte o repositório (preset _React (Vite)_, build `npm run build`, saída `dist`). `public/_headers` define CSP e cache. O fallback de rotas é automático porque o build não tem `404.html`.
 - **Vercel**: importe o repositório. `vercel.json` já define build, fallback de rotas, cabeçalhos e cache.
 - **Netlify**: importe o repositório. `netlify.toml` faz o mesmo.
 

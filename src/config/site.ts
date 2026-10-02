@@ -3,5 +3,5 @@ export const SITE = {
   name: 'Trilha ML',
   tagline: 'Aprenda algoritmos de aprendizado de máquina mexendo neles.',
   /** URL do repositório, exibida no rodapé quando preenchida */
-  repoUrl: 'https://github.com/Gaabrielhs/trilha-ml',
+  repoUrl: 'https://github.com/Gaabrielhs/machine-learning',
 } as const
