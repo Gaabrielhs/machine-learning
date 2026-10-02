@@ -1,0 +1,20 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import '@fontsource/atkinson-hyperlegible/400.css'
+import '@fontsource/atkinson-hyperlegible/700.css'
+import '@fontsource/atkinson-hyperlegible/400-italic.css'
+import '@fontsource/sora/600.css'
+import '@fontsource/sora/800.css'
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/silkscreen/400.css'
+import './styles/tokens.css'
+import './styles/base.css'
+import './styles/components.css'
+import './styles/game.css'
+import App from './App'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)

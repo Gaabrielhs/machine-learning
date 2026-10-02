@@ -1,0 +1,403 @@
+/* Camada "arcade" do modo jogo: fonte pixel, bordas e sombras duras. */
+.pixel,
+.pixel-title {
+  font-family: var(--f-pixel);
+  letter-spacing: 0.02em;
+}
+.pixel-title {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.btn-game {
+  background: var(--neg);
+  border: 2px solid var(--shadow-hard);
+  color: #1b1208;
+  box-shadow: 3px 3px 0 var(--shadow-hard);
+}
+.btn-game:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--shadow-hard);
+}
+.btn-big {
+  font-size: 1.05rem;
+  padding: 12px 20px;
+}
+.xp-inline {
+  font-family: var(--f-pixel);
+  font-size: 0.75rem;
+  background: rgb(0 0 0 / 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ---------- seletor de dificuldade ---------- */
+.difficulty {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: inline-flex;
+  border: 2px solid var(--shadow-hard);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--surface);
+}
+.difficulty-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: var(--f-pixel);
+  font-size: 0.85rem;
+}
+.difficulty-opt + .difficulty-opt {
+  border-left: 2px solid var(--shadow-hard);
+}
+.difficulty-opt.on {
+  background: var(--lvl);
+  color: var(--surface);
+}
+.difficulty.compact .difficulty-opt {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+}
+.pips {
+  display: inline-flex;
+  gap: 2px;
+}
+.pips i {
+  width: 6px;
+  height: 12px;
+  background: currentColor;
+  opacity: 0.25;
+}
+.pips i.on {
+  opacity: 1;
+}
+
+/* ---------- HUD ---------- */
+.quest {
+  display: grid;
+  gap: 28px;
+}
+.hud {
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + 58px);
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 2px solid var(--shadow-hard);
+  box-shadow: 4px 4px 0 var(--shadow-hard);
+  border-radius: var(--r);
+  padding: 10px 14px;
+}
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.hud-back {
+  font-family: var(--f-pixel);
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.hud-rank {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: center;
+  min-width: 0;
+}
+.hud-xp {
+  font-family: var(--f-pixel);
+  font-size: 1.05rem;
+  color: var(--neg);
+}
+.hud-title {
+  font-weight: 700;
+}
+.hud-bar {
+  grid-column: 1 / -1;
+  display: block;
+  height: 8px;
+  width: min(260px, 60vw);
+  background: var(--sunk);
+  border: 1.5px solid var(--shadow-hard);
+}
+.hud-bar i {
+  display: block;
+  height: 100%;
+  background: var(--neg);
+  transition: width 0.4s ease;
+}
+.hud-next {
+  grid-column: 1 / -1;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---------- escolha de nível ---------- */
+.picker {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+  padding-top: 12px;
+}
+.picker-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 18px;
+  width: 100%;
+  margin-top: 8px;
+}
+.picker-card {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  background: var(--surface);
+  border: 2px solid var(--shadow-hard);
+  box-shadow: 5px 5px 0 var(--lvl);
+  border-radius: var(--r);
+  padding: 20px;
+  cursor: pointer;
+  color: var(--ink);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+.picker-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--lvl);
+}
+.picker-card .pips {
+  color: var(--lvl);
+}
+.picker-label {
+  font-family: var(--f-pixel);
+  font-size: 1.5rem;
+  color: var(--lvl);
+}
+.picker-persona {
+  font-weight: 700;
+}
+.picker-blurb {
+  color: var(--muted);
+}
+.picker-xp {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+}
+
+/* ---------- mapa da trilha ---------- */
+.quest-intro {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+.trail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  max-width: 760px;
+}
+.trail::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 20px;
+  bottom: 20px;
+  border-left: 3px dashed var(--line);
+}
+.trail-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 14px 10px 0;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: var(--r);
+}
+.trail-link:hover {
+  background: var(--surface);
+}
+.trail-node {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--surface);
+  border: 2.5px solid var(--shadow-hard);
+  font-family: var(--f-pixel);
+  font-size: 1rem;
+}
+.trail-stop.cleared .trail-node {
+  background: var(--ok);
+  color: var(--surface);
+}
+.trail-stop.here .trail-node {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--neg) 35%, transparent);
+  border-color: var(--neg);
+}
+.trail-stop.boss .trail-node {
+  width: 52px;
+  height: 52px;
+  background: var(--neg);
+  color: #1b1208;
+}
+.trail-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.trail-text strong {
+  font-family: var(--f-display);
+  font-size: 1.08rem;
+}
+.trail-text span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.trail-badges {
+  display: flex;
+  gap: 4px;
+}
+.badge {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  font-family: var(--f-pixel);
+  font-size: 0.7rem;
+  border: 1.5px solid var(--lvl);
+  color: var(--lvl);
+  opacity: 0.45;
+}
+.badge.on {
+  background: var(--lvl);
+  color: var(--surface);
+  opacity: 1;
+}
+.reset {
+  color: var(--muted);
+  max-width: 760px;
+}
+.reset > summary {
+  cursor: pointer;
+}
+.reset-body {
+  display: grid;
+  gap: 14px;
+  padding-top: 12px;
+}
+.reset-body > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.confirm > summary {
+  list-style: none;
+  width: fit-content;
+}
+.confirm > summary::-webkit-details-marker {
+  display: none;
+}
+.confirm[open] {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+/* ---------- fase ---------- */
+.phase-head {
+  display: grid;
+  gap: 8px;
+}
+.phase-head .eyebrow {
+  color: var(--neg);
+}
+.phase-explain {
+  display: grid;
+  gap: 18px;
+}
+.deeper {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+.deeper-body {
+  border: 2px dashed var(--lvl);
+  border-radius: var(--r);
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+.deeper-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.phase-challenges {
+  display: grid;
+  gap: 16px;
+}
+.cleared-banner {
+  border: 2px solid var(--ok);
+  background: var(--ok-soft);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  max-width: 880px;
+}
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  background: var(--neg);
+  color: #1b1208;
+  border: 2px solid var(--shadow-hard);
+  box-shadow: 4px 4px 0 var(--shadow-hard);
+  padding: 10px 18px;
+  font-size: 1.2rem;
+  animation: pop 0.25s ease-out;
+  z-index: 20;
+}
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  /* no celular o HUD rola com a página para não ocupar a tela */
+  .hud {
+    position: static;
+  }
+}

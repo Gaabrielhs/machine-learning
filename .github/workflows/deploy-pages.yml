@@ -1,0 +1,47 @@
+# Publica no GitHub Pages a cada push na main (ou manualmente).
+# Ative em Settings → Pages → Source: GitHub Actions.
+#
+# BASE_PATH: com domínio próprio (ex.: trilha-gh.gabrielhenrique.dev) o site fica na raiz, "/".
+# Sem domínio próprio ele fica em /<nome-do-repo>/: crie a variável de repositório
+# BASE_PATH com esse valor em Settings → Secrets and variables → Actions → Variables.
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+      # SPA no Pages: rotas desconhecidas caem no 404.html, que é o próprio app
+      - run: cp dist/index.html dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

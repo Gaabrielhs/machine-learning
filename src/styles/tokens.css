@@ -1,0 +1,90 @@
+/*
+ * Trilha ML: caderno de laboratório com uma trilha que liga as etapas.
+ * Cobalto para a estrutura e para a classe/peso positivo, laranja para o negativo,
+ * e uma camada "arcade" (fonte pixel, sombras duras) reservada ao modo jogo.
+ */
+:root {
+  --bg: #f3f5fa;
+  --surface: #ffffff;
+  --sunk: #e8ecf4;
+  --ink: #151a2d;
+  --muted: #59627a;
+  --line: #d6dce8;
+  --accent: #3a3fd1;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4e6fb;
+  --pos: #2b7be4;
+  --neg: #e2702f;
+  --ok: #1f8a55;
+  --ok-soft: #dcf1e6;
+  --bad: #c73a3a;
+  --bad-soft: #f8e1e1;
+  --warn: #9a6a00;
+  --warn-soft: #f7ecd3;
+  --easy: #1f8a55;
+  --medium: #b97a00;
+  --hard: #c73a3a;
+  --shadow-hard: #151a2d;
+
+  --f-display: 'Sora', 'Avenir Next', 'Segoe UI', sans-serif;
+  --f-body: 'Atkinson Hyperlegible', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --f-pixel: 'Silkscreen', 'JetBrains Mono', ui-monospace, monospace;
+
+  --r: 8px;
+  --r-lg: 14px;
+  --measure: 70ch;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1222;
+    --surface: #171c31;
+    --sunk: #0a0d19;
+    --ink: #e6e9f5;
+    --muted: #9aa3bf;
+    --line: #2a3253;
+    --accent: #8c9bff;
+    --accent-ink: #0e1222;
+    --accent-soft: #232a52;
+    --pos: #5aa2ff;
+    --neg: #ff9a5c;
+    --ok: #4fcb8a;
+    --ok-soft: #15301f;
+    --bad: #ff6b6b;
+    --bad-soft: #3a1a1d;
+    --warn: #f2b53a;
+    --warn-soft: #33290f;
+    --easy: #4fcb8a;
+    --medium: #f2b53a;
+    --hard: #ff6b6b;
+    --shadow-hard: #000000;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1222;
+  --surface: #171c31;
+  --sunk: #0a0d19;
+  --ink: #e6e9f5;
+  --muted: #9aa3bf;
+  --line: #2a3253;
+  --accent: #8c9bff;
+  --accent-ink: #0e1222;
+  --accent-soft: #232a52;
+  --pos: #5aa2ff;
+  --neg: #ff9a5c;
+  --ok: #4fcb8a;
+  --ok-soft: #15301f;
+  --bad: #ff6b6b;
+  --bad-soft: #3a1a1d;
+  --warn: #f2b53a;
+  --warn-soft: #33290f;
+  --easy: #4fcb8a;
+  --medium: #f2b53a;
+  --hard: #ff6b6b;
+  --shadow-hard: #000000;
+  color-scheme: dark;
+}
