@@ -5,6 +5,7 @@ import { ConfusionMatrix, DotWhisker, HBars, LineChart, SmallHistograms, Stacked
 import { classColor, int, num, pct } from './format'
 import raw from './data.json'
 import type { SleepDebtData } from './types'
+import { TryModel } from './TryModel'
 import { usePresentation } from './usePresentation'
 import './sleep-debt.css'
 
@@ -32,6 +33,7 @@ const SECTIONS = [
   { id: 'resultado', title: 'Resultado' },
   { id: 'arquitetura', title: 'Escolha da arquitetura' },
   { id: 'discussao', title: 'Discussão' },
+  { id: 'testar', title: 'Teste o modelo' },
   { id: 'conclusao', title: 'Conclusão' },
 ] as const
 
@@ -471,6 +473,15 @@ mlp.fit(X_train, y_train)`}</Code>
           e o cronotipo levam a {pct(data.scenarios[2].acc)} de acurácia, bem acima dos {pct(data.baseline_majority)} do
           chute.
         </p>
+      </Slide>
+
+      {/* ============================== Teste ============================== */}
+      <Slide id="testar" step="Demonstração" title="Teste o modelo">
+        <p className="sd-lede">
+          Preencha os dados de uma pessoa e veja a classe que a MLP treinada prevê. Comece por um exemplo real do
+          conjunto de teste e mude os valores para ver como a previsão reage.
+        </p>
+        <TryModel classes={CLASSES} labels={LABEL} />
       </Slide>
 
       {/* ============================== Conclusão ============================== */}
