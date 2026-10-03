@@ -425,14 +425,16 @@ mlp.fit(X_train, y_train)`}</Code>
       </Slide>
 
       {/* ============================== Discussão ============================== */}
-      <Slide id="discussao" step="Análise crítica" title="Discussão: o peso das horas de sono">
+      <Slide id="discussao" step="Notebook · seção 8" title="Discussão: o peso das horas de sono">
         <p className="sd-lede">
           Usando um único atributo por vez, as horas de sono sozinhas já acertam {pct(data.solo[0].acc)} das classes. A
           categoria de dívida de sono é, na prática, uma faixa de horas dormidas.
         </p>
         <div className="sd-stack">
           <figure className="sd-fig">
-            <figcaption>Acurácia usando só um atributo (árvore de profundidade 3, validação cruzada)</figcaption>
+            <figcaption>
+              Acurácia usando só um atributo (árvore de profundidade 3, validação cruzada no treino)
+            </figcaption>
             <HBars
               ariaLabel="Acurácia de cada atributo usado sozinho"
               max={1}
