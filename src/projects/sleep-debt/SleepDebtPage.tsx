@@ -11,7 +11,7 @@ import './sleep-debt.css'
 
 /** Preencha para mostrar na capa. */
 const META = {
-  course: 'Pós-graduação · Trabalho 1 · Classificação de padrões',
+  course: 'Pós-graduação em Ciência de Dados · Aprendizado de Máquina e Reconhecimento de Padrões · Trabalho 1',
   authors: [] as string[],
 }
 
