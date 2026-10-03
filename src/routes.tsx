@@ -10,6 +10,11 @@ export const routes: RouteObject[] = [
     HydrateFallback: () => null,
     children: [
       { index: true, element: <Home /> },
+      // apresentação do trabalho de pós-graduação (não aparece no catálogo)
+      {
+        path: 'projetos/divida-de-sono',
+        lazy: async () => ({ Component: (await import('./projects/sleep-debt/SleepDebtPage')).SleepDebtPage }),
+      },
       {
         path: ':algoId',
         lazy: async () => ({ Component: (await import('./pages/AlgorithmShell')).AlgorithmShell }),

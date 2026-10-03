@@ -1,0 +1,452 @@
+{
+  "shape": [8500, 18],
+  "columns": [
+    { "name": "user_id", "desc": "identificador do participante", "missing": 0, "kind": "id" },
+    {
+      "name": "age",
+      "desc": "idade (anos)",
+      "missing": 0,
+      "kind": "num",
+      "min": 18.0,
+      "max": 65.0,
+      "mean": 34.36,
+      "std": 11.58
+    },
+    {
+      "name": "gender",
+      "desc": "gênero",
+      "missing": 0,
+      "kind": "cat",
+      "levels": { "Female": 4347, "Male": 3905, "Non-Binary": 248 }
+    },
+    {
+      "name": "occupation_type",
+      "desc": "tipo de ocupação",
+      "missing": 0,
+      "kind": "cat",
+      "levels": {
+        "Corporate 9-to-5": 2838,
+        "Remote Tech": 2142,
+        "Student": 1622,
+        "Healthcare / Shift Worker": 997,
+        "Freelance / Creative": 901
+      }
+    },
+    {
+      "name": "chronotype",
+      "desc": "cronotipo (matutino, intermediário, noturno)",
+      "missing": 0,
+      "kind": "cat",
+      "levels": { "Intermediate": 3880, "Night Owl": 2455, "Morning Lark": 2165 }
+    },
+    {
+      "name": "bedtime_phone_minutes",
+      "desc": "minutos no celular antes de dormir",
+      "missing": 0,
+      "kind": "num",
+      "min": 1.0,
+      "max": 180.0,
+      "mean": 59.25,
+      "std": 36.93
+    },
+    {
+      "name": "primary_bedtime_app",
+      "desc": "app mais usado antes de dormir",
+      "missing": 0,
+      "kind": "cat",
+      "levels": {
+        "TikTok / Reels": 2198,
+        "YouTube": 1928,
+        "Instagram / Reddit": 1630,
+        "Streaming (Netflix/Hulu)": 1301,
+        "Messaging / Chat": 847,
+        "News / Reading": 596
+      }
+    },
+    {
+      "name": "screen_brightness_pct",
+      "desc": "brilho da tela (%)",
+      "missing": 0,
+      "kind": "num",
+      "min": 10.0,
+      "max": 100.0,
+      "mean": 55.15,
+      "std": 19.85
+    },
+    {
+      "name": "blue_light_filter_active",
+      "desc": "filtro de luz azul ligado (0/1)",
+      "missing": 0,
+      "kind": "num",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.47,
+      "std": 0.5
+    },
+    {
+      "name": "caffeine_post_5pm_mg",
+      "desc": "cafeína após 17h (mg)",
+      "missing": 0,
+      "kind": "num",
+      "min": 0.0,
+      "max": 250.0,
+      "mean": 33.22,
+      "std": 51.94
+    },
+    {
+      "name": "physical_activity_min",
+      "desc": "atividade física (min/dia)",
+      "missing": 0,
+      "kind": "num",
+      "min": 0.0,
+      "max": 112.0,
+      "mean": 35.7,
+      "std": 20.82
+    },
+    {
+      "name": "sleep_latency_min",
+      "desc": "tempo para pegar no sono (min)",
+      "missing": 0,
+      "kind": "num",
+      "min": 6.0,
+      "max": 123.3,
+      "mean": 40.67,
+      "std": 17.44
+    },
+    {
+      "name": "total_sleep_hours",
+      "desc": "horas de sono",
+      "missing": 0,
+      "kind": "num",
+      "min": 3.2,
+      "max": 9.8,
+      "mean": 6.27,
+      "std": 1.45
+    },
+    {
+      "name": "deep_sleep_pct",
+      "desc": "sono profundo (%)",
+      "missing": 0,
+      "kind": "num",
+      "min": 8.1,
+      "max": 28.0,
+      "mean": 21.74,
+      "std": 3.07
+    },
+    {
+      "name": "rem_sleep_pct",
+      "desc": "sono REM (%)",
+      "missing": 0,
+      "kind": "num",
+      "min": 9.6,
+      "max": 27.0,
+      "mean": 19.11,
+      "std": 2.55
+    },
+    {
+      "name": "morning_alarm_snoozes",
+      "desc": "vezes que adiou o despertador",
+      "missing": 0,
+      "kind": "num",
+      "min": 0.0,
+      "max": 7.0,
+      "mean": 2.77,
+      "std": 1.7
+    },
+    {
+      "name": "next_day_fatigue_score",
+      "desc": "cansaço no dia seguinte (1–10)",
+      "missing": 0,
+      "kind": "num",
+      "min": 1.0,
+      "max": 10.0,
+      "mean": 3.79,
+      "std": 2.69
+    },
+    { "name": "sleep_debt_category", "desc": "categoria de dívida de sono (alvo)", "missing": 0, "kind": "target" }
+  ],
+  "classes": ["Optimal Recovery", "Mild Deficit", "Moderate Debt", "Severe Sleep Debt"],
+  "class_counts": [1387, 2004, 4462, 647],
+  "sleep_hist": {
+    "bins": [
+      3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0, 5.25, 5.5, 5.75, 6.0, 6.25, 6.5, 6.75, 7.0, 7.25, 7.5, 7.75, 8.0,
+      8.25, 8.5, 8.75, 9.0, 9.25, 9.5, 9.75, 10.0
+    ],
+    "counts": [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 404, 309, 225, 177, 122, 74, 36, 21, 19],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 521, 560, 462, 461, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [35, 26, 53, 93, 127, 174, 253, 327, 402, 409, 494, 493, 543, 514, 519, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [220, 71, 71, 78, 62, 53, 42, 28, 15, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+  },
+  "solo": [
+    { "name": "total_sleep_hours", "acc": 0.9522 },
+    { "name": "next_day_fatigue_score", "acc": 0.7654 },
+    { "name": "morning_alarm_snoozes", "acc": 0.6733 },
+    { "name": "chronotype", "acc": 0.5707 },
+    { "name": "sleep_latency_min", "acc": 0.5527 },
+    { "name": "bedtime_phone_minutes", "acc": 0.5433 },
+    { "name": "deep_sleep_pct", "acc": 0.5254 },
+    { "name": "rem_sleep_pct", "acc": 0.5252 },
+    { "name": "age", "acc": 0.5249 },
+    { "name": "gender", "acc": 0.5249 },
+    { "name": "occupation_type", "acc": 0.5249 },
+    { "name": "primary_bedtime_app", "acc": 0.5249 },
+    { "name": "screen_brightness_pct", "acc": 0.5249 },
+    { "name": "blue_light_filter_active", "acc": 0.5249 },
+    { "name": "caffeine_post_5pm_mg", "acc": 0.524 },
+    { "name": "physical_activity_min", "acc": 0.524 }
+  ],
+  "baseline_majority": 0.5249,
+  "split": {
+    "train": 6800,
+    "test": 1700,
+    "train_counts": [1109, 1603, 3570, 518],
+    "test_counts": [278, 401, 892, 129]
+  },
+  "scaler": [
+    { "name": "age", "mean": 34.409, "std": 11.596 },
+    { "name": "bedtime_phone_minutes", "mean": 59.333, "std": 36.894 },
+    { "name": "screen_brightness_pct", "mean": 55.078, "std": 19.894 },
+    { "name": "blue_light_filter_active", "mean": 0.467, "std": 0.499 },
+    { "name": "caffeine_post_5pm_mg", "mean": 33.378, "std": 51.465 },
+    { "name": "physical_activity_min", "mean": 35.458, "std": 20.846 },
+    { "name": "sleep_latency_min", "mean": 40.712, "std": 17.509 },
+    { "name": "total_sleep_hours", "mean": 6.26, "std": 1.446 },
+    { "name": "deep_sleep_pct", "mean": 21.721, "std": 3.065 },
+    { "name": "rem_sleep_pct", "mean": 19.106, "std": 2.548 },
+    { "name": "morning_alarm_snoozes", "mean": 2.772, "std": 1.702 },
+    { "name": "next_day_fatigue_score", "mean": 3.8, "std": 2.692 }
+  ],
+  "onehot": [
+    { "name": "gender", "levels": ["Female", "Male", "Non-Binary"] },
+    {
+      "name": "occupation_type",
+      "levels": ["Corporate 9-to-5", "Freelance / Creative", "Healthcare / Shift Worker", "Remote Tech", "Student"]
+    },
+    { "name": "chronotype", "levels": ["Intermediate", "Morning Lark", "Night Owl"] },
+    {
+      "name": "primary_bedtime_app",
+      "levels": [
+        "Instagram / Reddit",
+        "Messaging / Chat",
+        "News / Reading",
+        "Streaming (Netflix/Hulu)",
+        "TikTok / Reels",
+        "YouTube"
+      ]
+    }
+  ],
+  "features": [
+    "age",
+    "bedtime_phone_minutes",
+    "screen_brightness_pct",
+    "blue_light_filter_active",
+    "caffeine_post_5pm_mg",
+    "physical_activity_min",
+    "sleep_latency_min",
+    "total_sleep_hours",
+    "deep_sleep_pct",
+    "rem_sleep_pct",
+    "morning_alarm_snoozes",
+    "next_day_fatigue_score",
+    "gender_Female",
+    "gender_Male",
+    "gender_Non-Binary",
+    "occupation_type_Corporate 9-to-5",
+    "occupation_type_Freelance / Creative",
+    "occupation_type_Healthcare / Shift Worker",
+    "occupation_type_Remote Tech",
+    "occupation_type_Student",
+    "chronotype_Intermediate",
+    "chronotype_Morning Lark",
+    "chronotype_Night Owl",
+    "primary_bedtime_app_Instagram / Reddit",
+    "primary_bedtime_app_Messaging / Chat",
+    "primary_bedtime_app_News / Reading",
+    "primary_bedtime_app_Streaming (Netflix/Hulu)",
+    "primary_bedtime_app_TikTok / Reels",
+    "primary_bedtime_app_YouTube"
+  ],
+  "samples": [
+    {
+      "id": "USR-07034",
+      "raw": {
+        "user_id": "USR-07034",
+        "age": 35.0,
+        "gender": "Female",
+        "occupation_type": "Remote Tech",
+        "chronotype": "Night Owl",
+        "bedtime_phone_minutes": 50.0,
+        "primary_bedtime_app": "News / Reading",
+        "screen_brightness_pct": 42.0,
+        "blue_light_filter_active": 1.0,
+        "caffeine_post_5pm_mg": 0.0,
+        "physical_activity_min": 13.0,
+        "sleep_latency_min": 26.6,
+        "total_sleep_hours": 5.19,
+        "deep_sleep_pct": 25.2,
+        "rem_sleep_pct": 19.8,
+        "morning_alarm_snoozes": 3.0,
+        "next_day_fatigue_score": 3.0,
+        "sleep_debt_category": "Moderate Debt"
+      },
+      "vec": [
+        0.051, -0.253, -0.657, 1.068, -0.649, -1.077, -0.806, -0.74, 1.135, 0.272, 0.134, -0.297, 1.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+      ]
+    },
+    {
+      "id": "USR-06761",
+      "raw": {
+        "user_id": "USR-06761",
+        "age": 26.0,
+        "gender": "Male",
+        "occupation_type": "Corporate 9-to-5",
+        "chronotype": "Intermediate",
+        "bedtime_phone_minutes": 113.0,
+        "primary_bedtime_app": "TikTok / Reels",
+        "screen_brightness_pct": 67.0,
+        "blue_light_filter_active": 1.0,
+        "caffeine_post_5pm_mg": 57.0,
+        "physical_activity_min": 66.0,
+        "sleep_latency_min": 72.3,
+        "total_sleep_hours": 5.18,
+        "deep_sleep_pct": 19.2,
+        "rem_sleep_pct": 17.8,
+        "morning_alarm_snoozes": 4.0,
+        "next_day_fatigue_score": 6.5,
+        "sleep_debt_category": "Moderate Debt"
+      },
+      "vec": [
+        -0.725, 1.455, 0.599, 1.068, 0.459, 1.465, 1.804, -0.747, -0.823, -0.513, 0.721, 1.003, 0.0, 1.0, 0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0
+      ]
+    },
+    {
+      "id": "USR-01179",
+      "raw": {
+        "user_id": "USR-01179",
+        "age": 43.0,
+        "gender": "Female",
+        "occupation_type": "Student",
+        "chronotype": "Night Owl",
+        "bedtime_phone_minutes": 17.0,
+        "primary_bedtime_app": "Streaming (Netflix/Hulu)",
+        "screen_brightness_pct": 42.0,
+        "blue_light_filter_active": 1.0,
+        "caffeine_post_5pm_mg": 88.0,
+        "physical_activity_min": 32.0,
+        "sleep_latency_min": 26.4,
+        "total_sleep_hours": 5.99,
+        "deep_sleep_pct": 18.8,
+        "rem_sleep_pct": 17.4,
+        "morning_alarm_snoozes": 3.0,
+        "next_day_fatigue_score": 3.2,
+        "sleep_debt_category": "Moderate Debt"
+      },
+      "vec": [
+        0.741, -1.147, -0.657, 1.068, 1.061, -0.166, -0.817, -0.187, -0.953, -0.67, 0.134, -0.223, 1.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0
+      ]
+    },
+    {
+      "id": "USR-02504",
+      "raw": {
+        "user_id": "USR-02504",
+        "age": 58.0,
+        "gender": "Female",
+        "occupation_type": "Remote Tech",
+        "chronotype": "Intermediate",
+        "bedtime_phone_minutes": 10.0,
+        "primary_bedtime_app": "Messaging / Chat",
+        "screen_brightness_pct": 92.0,
+        "blue_light_filter_active": 0.0,
+        "caffeine_post_5pm_mg": 25.0,
+        "physical_activity_min": 55.0,
+        "sleep_latency_min": 17.0,
+        "total_sleep_hours": 7.8,
+        "deep_sleep_pct": 25.5,
+        "rem_sleep_pct": 20.7,
+        "morning_alarm_snoozes": 2.0,
+        "next_day_fatigue_score": 1.0,
+        "sleep_debt_category": "Optimal Recovery"
+      },
+      "vec": [
+        2.034, -1.337, 1.856, -0.937, -0.163, 0.937, -1.354, 1.065, 1.233, 0.626, -0.454, -1.04, 1.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0
+      ]
+    }
+  ],
+  "model": {
+    "layers": [29, 32, 16, 4],
+    "params": 1556,
+    "n_iter": 36,
+    "loss_curve": [
+      1.15406, 0.62109, 0.37993, 0.27542, 0.21591, 0.17717, 0.14959, 0.12972, 0.11499, 0.10375, 0.09547, 0.08756,
+      0.08011, 0.07679, 0.07082, 0.06684, 0.0636, 0.05984, 0.05553, 0.05411, 0.05178, 0.04806, 0.04744, 0.04662,
+      0.04423, 0.04225, 0.04023, 0.03883, 0.03839, 0.03714, 0.03566, 0.03344, 0.03377, 0.03233, 0.03017, 0.03176
+    ],
+    "val_scores": [
+      0.70147, 0.81471, 0.87647, 0.89412, 0.92647, 0.94559, 0.95588, 0.95147, 0.96471, 0.96176, 0.96029, 0.96176,
+      0.96765, 0.96618, 0.97353, 0.97059, 0.97353, 0.96912, 0.97353, 0.97794, 0.97206, 0.97059, 0.97353, 0.975, 0.97647,
+      0.975, 0.95882, 0.96912, 0.97206, 0.97647, 0.97206, 0.97647, 0.97794, 0.97647, 0.96912, 0.97353
+    ],
+    "best_val": 0.9779,
+    "config": {
+      "hidden_layer_sizes": [32, 16],
+      "activation": "relu",
+      "solver": "adam",
+      "learning_rate_init": 0.001,
+      "momentum": 0.0,
+      "batch_size": 64,
+      "alpha": 0.0001,
+      "max_iter": 300,
+      "early_stopping": true,
+      "validation_fraction": 0.1,
+      "n_iter_no_change": 15,
+      "random_state": 42
+    }
+  },
+  "metrics": {
+    "train_acc": 0.9897,
+    "test_acc": 0.9806,
+    "f1_macro": 0.9745,
+    "per_class": [
+      { "precision": 0.9891, "recall": 0.9784, "f1": 0.9837, "support": 278 },
+      { "precision": 0.9798, "recall": 0.9676, "f1": 0.9737, "support": 401 },
+      { "precision": 0.9844, "recall": 0.9888, "f1": 0.9866, "support": 892 },
+      { "precision": 0.9398, "recall": 0.969, "f1": 0.9542, "support": 129 }
+    ],
+    "confusion": [
+      [272, 6, 0, 0],
+      [3, 388, 10, 0],
+      [0, 2, 882, 8],
+      [0, 0, 4, 125]
+    ]
+  },
+  "cv": [
+    { "layers": [8], "mean": 0.9698, "std": 0.0034 },
+    { "layers": [32], "mean": 0.9662, "std": 0.0065 },
+    { "layers": [32, 16], "mean": 0.9696, "std": 0.0065 },
+    { "layers": [64, 32], "mean": 0.9626, "std": 0.0045 }
+  ],
+  "scenarios": [
+    { "label": "Todas as 16 variáveis", "dropped": [], "n_inputs": 29, "acc": 0.9806, "f1": 0.9745 },
+    { "label": "Sem horas de sono", "dropped": ["total_sleep_hours"], "n_inputs": 28, "acc": 0.8424, "f1": 0.8294 },
+    {
+      "label": "Só hábitos e perfil",
+      "dropped": [
+        "total_sleep_hours",
+        "next_day_fatigue_score",
+        "morning_alarm_snoozes",
+        "deep_sleep_pct",
+        "rem_sleep_pct",
+        "sleep_latency_min"
+      ],
+      "n_inputs": 23,
+      "acc": 0.7265,
+      "f1": 0.6799
+    }
+  ]
+}
