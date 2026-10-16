@@ -56,6 +56,21 @@ describe('aplicação', () => {
     expect(screen.getAllByText('10 XP').length).toBeGreaterThan(0)
   })
 
+  it('o menu leva à lista de projetos, com um link para cada apresentação', async () => {
+    const user = userEvent.setup()
+    await renderAt('/')
+    await user.click(screen.getByRole('link', { name: 'Projetos' }))
+    const list = await screen.findByRole('list', { name: 'Projetos' })
+    expect(within(list).getByRole('link', { name: 'Dívida de sono × celular' })).toHaveAttribute(
+      'href',
+      '/projetos/divida-de-sono',
+    )
+    expect(within(list).getByRole('link', { name: 'Horas de sono × celular' })).toHaveAttribute(
+      'href',
+      '/projetos/horas-de-sono',
+    )
+  })
+
   it('mostra 404 para endereço desconhecido', async () => {
     await renderAt('/nao-existe/aula')
     expect(screen.getByRole('heading', { name: 'Página não encontrada' })).toBeInTheDocument()

@@ -10,35 +10,17 @@ export const routes: RouteObject[] = [
     HydrateFallback: () => null,
     children: [
       { index: true, element: <Home /> },
-      // apresentação do trabalho de pós-graduação (não aparece no catálogo)
+      // apresentações dos trabalhos de pós-graduação, listadas em /projetos (config/projects.ts)
+      { path: 'projetos', lazy: async () => ({ Component: (await import('./pages/Projects')).Projects }) },
       {
         path: 'projetos/divida-de-sono',
         lazy: async () => ({ Component: (await import('./projects/sleep-debt/SleepDebtPage')).SleepDebtPage }),
       },
+      // etapa 2 do trabalho: árvore de decisão
       {
-        path: 'projetos/gpt-arvore-de-decisao',
+        path: 'projetos/horas-de-sono',
         lazy: async () => ({
-          Component: (await import('./projects/gpt-arvore-decisao/GptDecisionTreePage')).GptDecisionTreePage,
-        }),
-      },
-      // etapa 2 do trabalho: árvore de decisão (versão do Claude)
-      {
-        path: 'projetos/claude-arvore-de-decisao',
-        lazy: async () => ({
-          Component: (await import('./projects/claude-arvore-decisao/ClaudeTreePage')).ClaudeTreePage,
-        }),
-      },
-      // etapa 2 do trabalho: árvore de decisão (versão do Gemini)
-      {
-        path: 'projetos/gemini-arvore-de-decisao',
-        lazy: async () => ({
-          Component: (await import('./projects/gemini-arvore-decisao/GeminiDecisionTreePage')).GeminiDecisionTreePage,
-        }),
-      },
-      {
-        path: 'projetos/gemini-arvore-decisao',
-        lazy: async () => ({
-          Component: (await import('./projects/gemini-arvore-decisao/GeminiDecisionTreePage')).GeminiDecisionTreePage,
+          Component: (await import('./projects/sleep-hours/SleepHoursPage')).SleepHoursPage,
         }),
       },
       {

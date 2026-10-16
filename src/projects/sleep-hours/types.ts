@@ -1,4 +1,4 @@
-/** Formato de data.json, gerado por claude-arvore-decisao/claude_gerar_dados_apresentacao.py. */
+/** Formato de data.json, gerado por trabalho-arvore-sono/gerar_dados_apresentacao.py. */
 export type Role = 'id' | 'leak' | 'night' | 'morning' | 'target' | 'input'
 
 export interface Metrics {

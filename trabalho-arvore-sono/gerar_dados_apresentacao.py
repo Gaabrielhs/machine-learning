@@ -1,16 +1,16 @@
 """
-Gera os dados da apresentação da etapa 2 (site machine-learning, rota /projetos/claude-arvore-de-decisao).
+Gera os dados da apresentação da etapa 2 (site machine-learning, rota /projetos/horas-de-sono).
 
-Repete o pipeline do notebook claude_arvore_decisao.ipynb com a mesma configuração e salva
+Repete o pipeline do notebook arvore_decisao_sklearn.ipynb com a mesma configuração e salva
 os números, curvas e amostras usados nos gráficos.
 
 Uso:
-    python claude_gerar_dados_apresentacao.py [caminho/para/o/csv]
+    python gerar_dados_apresentacao.py [caminho/para/o/csv]
 
-Escreve em ../src/projects/claude-arvore-decisao/data.json e, ao lado, model.json
+Escreve em ../src/projects/sleep-hours/data.json e, ao lado, model.json
 (a árvore treinada, usada na seção "Teste o modelo").
 No Google Colab (ou em qualquer lugar sem a pasta do site), escreve os dois arquivos na pasta atual:
-baixe-os e copie para src/projects/claude-arvore-decisao/.
+baixe-os e copie para src/projects/sleep-hours/.
 Requer pandas e scikit-learn.
 O CSV é baixado do Kaggle se não for informado nem estiver nesta pasta.
 """
@@ -26,7 +26,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 AQUI = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.getcwd()
 ARQUIVO = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1].endswith(".csv") else os.path.join(AQUI, "bedtime_screentime_sleep_debt.csv")
-DESTINO = os.path.join(AQUI, "..", "src", "projects", "claude-arvore-decisao")
+DESTINO = os.path.join(AQUI, "..", "src", "projects", "sleep-hours")
 if not os.path.isdir(os.path.join(AQUI, "..", "src", "projects")):
     DESTINO = os.getcwd()   # Colab: salva ao lado do notebook
 if not os.path.exists(ARQUIVO):

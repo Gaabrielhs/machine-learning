@@ -5,7 +5,7 @@ import { routes } from '../../routes'
 import data from './data.json'
 
 async function open() {
-  const router = createMemoryRouter(routes, { initialEntries: ['/projetos/claude-arvore-de-decisao'] })
+  const router = createMemoryRouter(routes, { initialEntries: ['/projetos/horas-de-sono'] })
   await act(async () => {
     render(<RouterProvider router={router} />)
   })

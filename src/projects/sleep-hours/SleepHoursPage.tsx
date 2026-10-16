@@ -12,7 +12,7 @@ import type { ExportedTree } from './model'
 import { TreeExplorer } from './TreeExplorer'
 import { TryTree } from './TryTree'
 import type { Role, TreeData } from './types'
-import './claude-arvore.css'
+import './sleep-hours.css'
 
 /** Preencha para mostrar na capa. */
 const META = {
@@ -53,7 +53,7 @@ const ROLE: Record<Role, { label: string; why: string }> = {
   morning: { label: 'removida', why: 'consequência medida na manhã seguinte' },
 }
 
-export function ClaudeTreePage() {
+export function SleepHoursPage() {
   useDocumentTitle('Horas de sono · Árvore de decisão')
   const p = usePresentation(SECTIONS.map((s) => s.id))
   const m = data.metrics
@@ -751,4 +751,4 @@ function CatMeans({ title, rows }: { title: string; rows: { level: string; mean:
   )
 }
 
-export default ClaudeTreePage
+export default SleepHoursPage

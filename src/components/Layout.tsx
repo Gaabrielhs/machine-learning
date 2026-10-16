@@ -33,6 +33,7 @@ export function Layout() {
         </Link>
         <nav aria-label="Principal" className="site-nav">
           <Link to="/">Algoritmos</Link>
+          <Link to="/projetos">Projetos</Link>
           <ThemeToggle />
         </nav>
       </header>
