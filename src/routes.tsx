@@ -16,6 +16,32 @@ export const routes: RouteObject[] = [
         lazy: async () => ({ Component: (await import('./projects/sleep-debt/SleepDebtPage')).SleepDebtPage }),
       },
       {
+        path: 'projetos/gpt-arvore-de-decisao',
+        lazy: async () => ({
+          Component: (await import('./projects/gpt-arvore-decisao/GptDecisionTreePage')).GptDecisionTreePage,
+        }),
+      },
+      // etapa 2 do trabalho: árvore de decisão (versão do Claude)
+      {
+        path: 'projetos/claude-arvore-de-decisao',
+        lazy: async () => ({
+          Component: (await import('./projects/claude-arvore-decisao/ClaudeTreePage')).ClaudeTreePage,
+        }),
+      },
+      // etapa 2 do trabalho: árvore de decisão (versão do Gemini)
+      {
+        path: 'projetos/gemini-arvore-de-decisao',
+        lazy: async () => ({
+          Component: (await import('./projects/gemini-arvore-decisao/GeminiDecisionTreePage')).GeminiDecisionTreePage,
+        }),
+      },
+      {
+        path: 'projetos/gemini-arvore-decisao',
+        lazy: async () => ({
+          Component: (await import('./projects/gemini-arvore-decisao/GeminiDecisionTreePage')).GeminiDecisionTreePage,
+        }),
+      },
+      {
         path: ':algoId',
         lazy: async () => ({ Component: (await import('./pages/AlgorithmShell')).AlgorithmShell }),
         children: [

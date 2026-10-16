@@ -1,0 +1,1054 @@
+{
+  "ready": true,
+  "shape": [
+    8500,
+    18
+  ],
+  "target": "next_day_fatigue_score",
+  "target_label": "Pontuação de fadiga no dia seguinte",
+  "inputs": [
+    "age",
+    "gender",
+    "occupation_type",
+    "chronotype",
+    "bedtime_phone_minutes",
+    "primary_bedtime_app",
+    "screen_brightness_pct",
+    "blue_light_filter_active",
+    "caffeine_post_5pm_mg",
+    "physical_activity_min",
+    "sleep_latency_min",
+    "total_sleep_hours",
+    "deep_sleep_pct",
+    "rem_sleep_pct",
+    "morning_alarm_snoozes"
+  ],
+  "columns": [
+    {
+      "name": "age",
+      "label": "Idade",
+      "kind": "num"
+    },
+    {
+      "name": "gender",
+      "label": "Gênero",
+      "kind": "cat"
+    },
+    {
+      "name": "occupation_type",
+      "label": "Ocupação",
+      "kind": "cat"
+    },
+    {
+      "name": "chronotype",
+      "label": "Cronotipo",
+      "kind": "cat"
+    },
+    {
+      "name": "bedtime_phone_minutes",
+      "label": "Uso de celular antes de dormir (min)",
+      "kind": "num"
+    },
+    {
+      "name": "primary_bedtime_app",
+      "label": "Principal aplicativo noturno",
+      "kind": "cat"
+    },
+    {
+      "name": "screen_brightness_pct",
+      "label": "Brilho da tela (%)",
+      "kind": "num"
+    },
+    {
+      "name": "blue_light_filter_active",
+      "label": "Filtro de luz azul ativo",
+      "kind": "num"
+    },
+    {
+      "name": "caffeine_post_5pm_mg",
+      "label": "Cafeína após 17h (mg)",
+      "kind": "num"
+    },
+    {
+      "name": "physical_activity_min",
+      "label": "Atividade física (min)",
+      "kind": "num"
+    },
+    {
+      "name": "sleep_latency_min",
+      "label": "Latência para dormir (min)",
+      "kind": "num"
+    },
+    {
+      "name": "total_sleep_hours",
+      "label": "Horas totais de sono",
+      "kind": "num"
+    },
+    {
+      "name": "deep_sleep_pct",
+      "label": "Sono profundo (%)",
+      "kind": "num"
+    },
+    {
+      "name": "rem_sleep_pct",
+      "label": "Sono REM (%)",
+      "kind": "num"
+    },
+    {
+      "name": "morning_alarm_snoozes",
+      "label": "Sonecas do alarme",
+      "kind": "num"
+    }
+  ],
+  "split": {
+    "train": 6800,
+    "test": 1700
+  },
+  "preprocessing": {
+    "numeric": [
+      {
+        "name": "age",
+        "min": 18.0,
+        "max": 65.0,
+        "integer": true
+      },
+      {
+        "name": "bedtime_phone_minutes",
+        "min": 2.0,
+        "max": 180.0,
+        "integer": true
+      },
+      {
+        "name": "screen_brightness_pct",
+        "min": 10.0,
+        "max": 100.0,
+        "integer": true
+      },
+      {
+        "name": "blue_light_filter_active",
+        "min": 0.0,
+        "max": 1.0,
+        "integer": true
+      },
+      {
+        "name": "caffeine_post_5pm_mg",
+        "min": 0.0,
+        "max": 250.0,
+        "integer": true
+      },
+      {
+        "name": "physical_activity_min",
+        "min": 0.0,
+        "max": 112.0,
+        "integer": true
+      },
+      {
+        "name": "sleep_latency_min",
+        "min": 6.0,
+        "max": 123.3,
+        "integer": false
+      },
+      {
+        "name": "total_sleep_hours",
+        "min": 3.2,
+        "max": 9.8,
+        "integer": false
+      },
+      {
+        "name": "deep_sleep_pct",
+        "min": 8.1,
+        "max": 28.0,
+        "integer": false
+      },
+      {
+        "name": "rem_sleep_pct",
+        "min": 9.6,
+        "max": 27.0,
+        "integer": false
+      },
+      {
+        "name": "morning_alarm_snoozes",
+        "min": 0.0,
+        "max": 7.0,
+        "integer": true
+      }
+    ],
+    "categorical": [
+      {
+        "name": "gender",
+        "levels": [
+          "Female",
+          "Male",
+          "Non-Binary"
+        ]
+      },
+      {
+        "name": "occupation_type",
+        "levels": [
+          "Corporate 9-to-5",
+          "Freelance / Creative",
+          "Healthcare / Shift Worker",
+          "Remote Tech",
+          "Student"
+        ]
+      },
+      {
+        "name": "chronotype",
+        "levels": [
+          "Intermediate",
+          "Morning Lark",
+          "Night Owl"
+        ]
+      },
+      {
+        "name": "primary_bedtime_app",
+        "levels": [
+          "Instagram / Reddit",
+          "Messaging / Chat",
+          "News / Reading",
+          "Streaming (Netflix/Hulu)",
+          "TikTok / Reels",
+          "YouTube"
+        ]
+      }
+    ],
+    "feature_names": [
+      "age",
+      "bedtime_phone_minutes",
+      "screen_brightness_pct",
+      "blue_light_filter_active",
+      "caffeine_post_5pm_mg",
+      "physical_activity_min",
+      "sleep_latency_min",
+      "total_sleep_hours",
+      "deep_sleep_pct",
+      "rem_sleep_pct",
+      "morning_alarm_snoozes",
+      "gender=Female",
+      "gender=Male",
+      "gender=Non-Binary",
+      "occupation_type=Corporate 9-to-5",
+      "occupation_type=Freelance / Creative",
+      "occupation_type=Healthcare / Shift Worker",
+      "occupation_type=Remote Tech",
+      "occupation_type=Student",
+      "chronotype=Intermediate",
+      "chronotype=Morning Lark",
+      "chronotype=Night Owl",
+      "primary_bedtime_app=Instagram / Reddit",
+      "primary_bedtime_app=Messaging / Chat",
+      "primary_bedtime_app=News / Reading",
+      "primary_bedtime_app=Streaming (Netflix/Hulu)",
+      "primary_bedtime_app=TikTok / Reels",
+      "primary_bedtime_app=YouTube"
+    ]
+  },
+  "validation": [
+    {
+      "max_depth": 3,
+      "min_samples_leaf": 40,
+      "mae": 0.8044812959071773,
+      "std": 0.006064546807801528
+    },
+    {
+      "max_depth": 4,
+      "min_samples_leaf": 40,
+      "mae": 0.6716506314193146,
+      "std": 0.005082678628113068
+    },
+    {
+      "max_depth": 5,
+      "min_samples_leaf": 40,
+      "mae": 0.6058587045712998,
+      "std": 0.002621743125941585
+    },
+    {
+      "max_depth": 6,
+      "min_samples_leaf": 40,
+      "mae": 0.5747595237019475,
+      "std": 0.003371095907531951
+    },
+    {
+      "max_depth": 7,
+      "min_samples_leaf": 40,
+      "mae": 0.5606142287606749,
+      "std": 0.0017368117522490608
+    },
+    {
+      "max_depth": 6,
+      "min_samples_leaf": 80,
+      "mae": 0.5993774351880854,
+      "std": 0.0003510321494496535
+    }
+  ],
+  "selected": {
+    "max_depth": 7,
+    "min_samples_leaf": 40
+  },
+  "metrics": {
+    "train": {
+      "mae": 0.48892166916683577,
+      "rmse": 0.686260533004872,
+      "r2": 0.9345076210923271
+    },
+    "test": {
+      "mae": 0.5258084381175118,
+      "rmse": 0.7311226613946828,
+      "r2": 0.9265812985818254
+    }
+  },
+  "tree": {
+    "nodes": 165,
+    "leaves": 83,
+    "depth": 7,
+    "preview": [
+      {
+        "node": 0,
+        "depth": 0,
+        "feature": "morning_alarm_snoozes",
+        "threshold": 3.5,
+        "n": 6800,
+        "value": 3.8031176470588237
+      },
+      {
+        "node": 1,
+        "depth": 1,
+        "feature": "total_sleep_hours",
+        "threshold": 6.585,
+        "n": 4663,
+        "value": 2.3945957538065623
+      },
+      {
+        "node": 2,
+        "depth": 2,
+        "feature": "total_sleep_hours",
+        "threshold": 5.715,
+        "n": 1792,
+        "value": 3.740401785714286
+      },
+      {
+        "node": 51,
+        "depth": 2,
+        "feature": "sleep_latency_min",
+        "threshold": 40.849999999999994,
+        "n": 2871,
+        "value": 1.5545802856147684
+      },
+      {
+        "node": 98,
+        "depth": 1,
+        "feature": "total_sleep_hours",
+        "threshold": 4.535,
+        "n": 2137,
+        "value": 6.876555919513337
+      },
+      {
+        "node": 99,
+        "depth": 2,
+        "feature": "sleep_latency_min",
+        "threshold": 50.75,
+        "n": 838,
+        "value": 8.499522673031027
+      },
+      {
+        "node": 128,
+        "depth": 2,
+        "feature": "sleep_latency_min",
+        "threshold": 60.75,
+        "n": 1299,
+        "value": 5.829561200923788
+      }
+    ]
+  },
+  "importance": [
+    {
+      "name": "morning_alarm_snoozes",
+      "value": 0.8336703425205177
+    },
+    {
+      "name": "total_sleep_hours",
+      "value": 0.14530043563671627
+    },
+    {
+      "name": "sleep_latency_min",
+      "value": 0.020462933895266502
+    },
+    {
+      "name": "caffeine_post_5pm_mg",
+      "value": 0.0003266059888235303
+    },
+    {
+      "name": "deep_sleep_pct",
+      "value": 0.00023715752288537914
+    },
+    {
+      "name": "physical_activity_min",
+      "value": 2.2447800011141553e-06
+    },
+    {
+      "name": "screen_brightness_pct",
+      "value": 2.7965578945593743e-07
+    }
+  ],
+  "examples": [
+    {
+      "raw": {
+        "age": 22.0,
+        "gender": "Female",
+        "occupation_type": "Remote Tech",
+        "chronotype": "Intermediate",
+        "bedtime_phone_minutes": 89.0,
+        "primary_bedtime_app": "TikTok / Reels",
+        "screen_brightness_pct": 43.0,
+        "blue_light_filter_active": 0.0,
+        "caffeine_post_5pm_mg": 0.0,
+        "physical_activity_min": 48.0,
+        "sleep_latency_min": 59.1,
+        "total_sleep_hours": 6.12,
+        "deep_sleep_pct": 24.7,
+        "rem_sleep_pct": 17.2,
+        "morning_alarm_snoozes": 4.0
+      },
+      "actual": 4.7,
+      "prediction": 4.699999999999999
+    },
+    {
+      "raw": {
+        "age": 58.0,
+        "gender": "Male",
+        "occupation_type": "Student",
+        "chronotype": "Night Owl",
+        "bedtime_phone_minutes": 63.0,
+        "primary_bedtime_app": "News / Reading",
+        "screen_brightness_pct": 74.0,
+        "blue_light_filter_active": 1.0,
+        "caffeine_post_5pm_mg": 0.0,
+        "physical_activity_min": 21.0,
+        "sleep_latency_min": 30.0,
+        "total_sleep_hours": 5.68,
+        "deep_sleep_pct": 25.0,
+        "rem_sleep_pct": 20.1,
+        "morning_alarm_snoozes": 3.0
+      },
+      "actual": 3.6,
+      "prediction": 3.7711711711711713
+    },
+    {
+      "raw": {
+        "age": 43.0,
+        "gender": "Female",
+        "occupation_type": "Corporate 9-to-5",
+        "chronotype": "Night Owl",
+        "bedtime_phone_minutes": 180.0,
+        "primary_bedtime_app": "YouTube",
+        "screen_brightness_pct": 56.0,
+        "blue_light_filter_active": 0.0,
+        "caffeine_post_5pm_mg": 0.0,
+        "physical_activity_min": 30.0,
+        "sleep_latency_min": 77.3,
+        "total_sleep_hours": 3.2,
+        "deep_sleep_pct": 16.4,
+        "rem_sleep_pct": 20.1,
+        "morning_alarm_snoozes": 5.0
+      },
+      "actual": 10.0,
+      "prediction": 9.357142857142858
+    },
+    {
+      "raw": {
+        "age": 25.0,
+        "gender": "Female",
+        "occupation_type": "Remote Tech",
+        "chronotype": "Morning Lark",
+        "bedtime_phone_minutes": 92.0,
+        "primary_bedtime_app": "TikTok / Reels",
+        "screen_brightness_pct": 47.0,
+        "blue_light_filter_active": 1.0,
+        "caffeine_post_5pm_mg": 0.0,
+        "physical_activity_min": 32.0,
+        "sleep_latency_min": 47.0,
+        "total_sleep_hours": 6.35,
+        "deep_sleep_pct": 28.0,
+        "rem_sleep_pct": 16.5,
+        "morning_alarm_snoozes": 4.0
+      },
+      "actual": 1.7,
+      "prediction": 4.699999999999999
+    }
+  ],
+  "points": [
+    {
+      "actual": 2.2,
+      "prediction": 2.5028169014084507
+    },
+    {
+      "actual": 2.2,
+      "prediction": 2.856497175141243
+    },
+    {
+      "actual": 2.7,
+      "prediction": 3.3981132075471696
+    },
+    {
+      "actual": 2.9,
+      "prediction": 2.2658536585365856
+    },
+    {
+      "actual": 2.9,
+      "prediction": 2.7686746987951807
+    },
+    {
+      "actual": 1.2,
+      "prediction": 1.1126696832579186
+    },
+    {
+      "actual": 2.2,
+      "prediction": 1.7466666666666666
+    },
+    {
+      "actual": 6.7,
+      "prediction": 6.776744186046511
+    },
+    {
+      "actual": 10.0,
+      "prediction": 9.357142857142858
+    },
+    {
+      "actual": 3.4,
+      "prediction": 3.9387096774193546
+    },
+    {
+      "actual": 4.1,
+      "prediction": 3.33953488372093
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.1547169811320754
+    },
+    {
+      "actual": 7.3,
+      "prediction": 8.757777777777779
+    },
+    {
+      "actual": 5.2,
+      "prediction": 3.64468085106383
+    },
+    {
+      "actual": 6.8,
+      "prediction": 6.183854166666666
+    },
+    {
+      "actual": 7.7,
+      "prediction": 6.832467532467533
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 7.5,
+      "prediction": 6.842465753424658
+    },
+    {
+      "actual": 3.4,
+      "prediction": 2.679787234042553
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.9326797385620915
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.4255208333333333
+    },
+    {
+      "actual": 5.9,
+      "prediction": 4.439805825242718
+    },
+    {
+      "actual": 5.6,
+      "prediction": 5.117073170731707
+    },
+    {
+      "actual": 6.8,
+      "prediction": 6.842465753424658
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 3.9,
+      "prediction": 3.164705882352941
+    },
+    {
+      "actual": 1.5,
+      "prediction": 3.5625
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 8.3,
+      "prediction": 7.794915254237288
+    },
+    {
+      "actual": 2.0,
+      "prediction": 1.7466666666666666
+    },
+    {
+      "actual": 10.0,
+      "prediction": 8.655555555555555
+    },
+    {
+      "actual": 5.1,
+      "prediction": 4.3149999999999995
+    },
+    {
+      "actual": 3.1,
+      "prediction": 1.9326797385620915
+    },
+    {
+      "actual": 4.9,
+      "prediction": 5.156521739130435
+    },
+    {
+      "actual": 6.8,
+      "prediction": 6.183854166666666
+    },
+    {
+      "actual": 5.0,
+      "prediction": 4.439805825242718
+    },
+    {
+      "actual": 5.4,
+      "prediction": 5.156521739130435
+    },
+    {
+      "actual": 5.2,
+      "prediction": 5.55
+    },
+    {
+      "actual": 10.0,
+      "prediction": 9.998863636363636
+    },
+    {
+      "actual": 9.4,
+      "prediction": 9.007142857142858
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 8.0,
+      "prediction": 9.357142857142858
+    },
+    {
+      "actual": 1.3,
+      "prediction": 1.4341463414634146
+    },
+    {
+      "actual": 5.9,
+      "prediction": 4.439805825242718
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 6.3,
+      "prediction": 7.794915254237288
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.2827067669172931
+    },
+    {
+      "actual": 3.5,
+      "prediction": 3.7711711711711713
+    },
+    {
+      "actual": 3.7,
+      "prediction": 3.164705882352941
+    },
+    {
+      "actual": 1.0,
+      "prediction": 2.856497175141243
+    },
+    {
+      "actual": 2.9,
+      "prediction": 3.5625
+    },
+    {
+      "actual": 6.1,
+      "prediction": 6.90204081632653
+    },
+    {
+      "actual": 8.3,
+      "prediction": 7.794915254237288
+    },
+    {
+      "actual": 5.2,
+      "prediction": 6.183854166666666
+    },
+    {
+      "actual": 1.5,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 5.1,
+      "prediction": 5.55
+    },
+    {
+      "actual": 1.9,
+      "prediction": 1.1126696832579186
+    },
+    {
+      "actual": 1.8,
+      "prediction": 2.856497175141243
+    },
+    {
+      "actual": 2.6,
+      "prediction": 2.6624999999999996
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 5.6,
+      "prediction": 5.074509803921569
+    },
+    {
+      "actual": 7.1,
+      "prediction": 5.968085106382978
+    },
+    {
+      "actual": 7.6,
+      "prediction": 6.90204081632653
+    },
+    {
+      "actual": 3.1,
+      "prediction": 2.856497175141243
+    },
+    {
+      "actual": 3.8,
+      "prediction": 3.7711711711711713
+    },
+    {
+      "actual": 9.3,
+      "prediction": 7.601470588235294
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.1126696832579186
+    },
+    {
+      "actual": 2.8,
+      "prediction": 3.64468085106383
+    },
+    {
+      "actual": 1.5,
+      "prediction": 2.5028169014084507
+    },
+    {
+      "actual": 2.2,
+      "prediction": 2.7574468085106383
+    },
+    {
+      "actual": 5.3,
+      "prediction": 5.55
+    },
+    {
+      "actual": 1.2,
+      "prediction": 2.077142857142857
+    },
+    {
+      "actual": 2.2,
+      "prediction": 1.6285714285714283
+    },
+    {
+      "actual": 1.2,
+      "prediction": 1.4255208333333333
+    },
+    {
+      "actual": 3.7,
+      "prediction": 4.290243902439024
+    },
+    {
+      "actual": 5.4,
+      "prediction": 6.079661016949152
+    },
+    {
+      "actual": 2.2,
+      "prediction": 2.856497175141243
+    },
+    {
+      "actual": 4.6,
+      "prediction": 5.968085106382978
+    },
+    {
+      "actual": 9.3,
+      "prediction": 9.692982456140351
+    },
+    {
+      "actual": 5.1,
+      "prediction": 6.183854166666666
+    },
+    {
+      "actual": 2.5,
+      "prediction": 3.164705882352941
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 5.9,
+      "prediction": 5.074509803921569
+    },
+    {
+      "actual": 3.9,
+      "prediction": 1.6285714285714283
+    },
+    {
+      "actual": 3.0,
+      "prediction": 3.9387096774193546
+    },
+    {
+      "actual": 5.8,
+      "prediction": 5.268055555555556
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.2827067669172931
+    },
+    {
+      "actual": 1.1,
+      "prediction": 1.98
+    },
+    {
+      "actual": 5.1,
+      "prediction": 5.357446808510638
+    },
+    {
+      "actual": 2.4,
+      "prediction": 1.4255208333333333
+    },
+    {
+      "actual": 3.6,
+      "prediction": 3.7653061224489797
+    },
+    {
+      "actual": 6.9,
+      "prediction": 7.601470588235294
+    },
+    {
+      "actual": 10.0,
+      "prediction": 9.998863636363636
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.4341463414634146
+    },
+    {
+      "actual": 6.7,
+      "prediction": 7.601470588235294
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.2827067669172931
+    },
+    {
+      "actual": 2.5,
+      "prediction": 2.5028169014084507
+    },
+    {
+      "actual": 2.6,
+      "prediction": 3.3981132075471696
+    },
+    {
+      "actual": 3.8,
+      "prediction": 4.163414634146341
+    },
+    {
+      "actual": 7.6,
+      "prediction": 6.079661016949152
+    },
+    {
+      "actual": 1.6,
+      "prediction": 1.4341463414634146
+    },
+    {
+      "actual": 6.7,
+      "prediction": 7.722499999999999
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.9326797385620915
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.573469387755102
+    },
+    {
+      "actual": 2.4,
+      "prediction": 2.679787234042553
+    },
+    {
+      "actual": 1.4,
+      "prediction": 1.2827067669172931
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.5,
+      "prediction": 2.5028169014084507
+    },
+    {
+      "actual": 3.7,
+      "prediction": 5.20281690140845
+    },
+    {
+      "actual": 7.8,
+      "prediction": 7.722499999999999
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 10.0,
+      "prediction": 9.357142857142858
+    },
+    {
+      "actual": 1.4,
+      "prediction": 1.4341463414634146
+    },
+    {
+      "actual": 4.7,
+      "prediction": 5.968085106382978
+    },
+    {
+      "actual": 1.8,
+      "prediction": 1.6285714285714283
+    },
+    {
+      "actual": 3.3,
+      "prediction": 3.9387096774193546
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 2.8,
+      "prediction": 2.7686746987951807
+    },
+    {
+      "actual": 1.5,
+      "prediction": 2.7574468085106383
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 2.8,
+      "prediction": 2.679787234042553
+    },
+    {
+      "actual": 3.3,
+      "prediction": 4.163414634146341
+    },
+    {
+      "actual": 2.7,
+      "prediction": 2.5028169014084507
+    },
+    {
+      "actual": 2.8,
+      "prediction": 3.5625
+    },
+    {
+      "actual": 3.2,
+      "prediction": 3.9387096774193546
+    },
+    {
+      "actual": 6.7,
+      "prediction": 5.968085106382978
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.9326797385620915
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.573469387755102
+    },
+    {
+      "actual": 10.0,
+      "prediction": 8.655555555555555
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 2.155813953488372
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.0160749506903353
+    },
+    {
+      "actual": 1.0,
+      "prediction": 1.1547169811320754
+    },
+    {
+      "actual": 3.5,
+      "prediction": 3.8191489361702127
+    },
+    {
+      "actual": 3.8,
+      "prediction": 4.439805825242718
+    },
+    {
+      "actual": 8.5,
+      "prediction": 8.1375
+    },
+    {
+      "actual": 3.0,
+      "prediction": 3.093877551020408
+    }
+  ],
+  "target_summary": {
+    "min": 1.0,
+    "max": 10.0,
+    "mean": 3.7946705882352942
+  }
+}
