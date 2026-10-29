@@ -1,0 +1,210 @@
+/*
+ * Apresentação da etapa 3 (SARIMAX). Reaproveita sleep-debt.css e acrescenta só as peças novas:
+ * aviso de números provisórios, gráficos de série, linha do tempo treino × teste e o simulador de cenários.
+ */
+
+/* ---------- aviso de números provisórios ---------- */
+.dc-banner {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--bad);
+  border-radius: var(--r);
+  background: var(--bad-soft);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.dc-banner strong {
+  color: var(--bad);
+}
+.dc-banner code {
+  font-size: 0.88em;
+}
+
+/* ---------- gráficos de série ---------- */
+.dc-line {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.dc-band {
+  fill-opacity: 0.16;
+  stroke: none;
+}
+.dc-shade {
+  fill: var(--sunk);
+}
+.dc-dot {
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.dc-ci {
+  fill: var(--sunk);
+}
+.dc-stem {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.dc-stem.out {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.dc-stem-dot {
+  fill: var(--muted);
+}
+.dc-stem-dot.out {
+  fill: var(--accent);
+}
+.dc-legend {
+  margin-top: 8px;
+}
+.dc-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dc-swatch {
+  display: inline-block;
+  width: 22px;
+  height: 0;
+  border-top: 3px solid var(--c);
+  border-radius: 2px;
+}
+.dc-swatch.dashed {
+  border-top-style: dashed;
+}
+.dc-swatch.area {
+  height: 10px;
+  border: 0;
+  background: var(--c);
+  opacity: 0.25;
+  border-radius: 3px;
+}
+.dc-swatch-shade {
+  height: 10px;
+  border: 1px solid var(--line);
+  background: var(--sunk);
+  border-radius: 3px;
+}
+.dc-stl {
+  display: grid;
+  gap: 4px;
+}
+.dc-stl figcaption {
+  margin-top: 6px;
+}
+
+/* ---------- treino × teste ---------- */
+.dc-split {
+  display: flex;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+.dc-split > div {
+  padding: 12px 14px;
+  border-radius: var(--r);
+  line-height: 1.35;
+}
+.dc-split-train {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.dc-split-test {
+  border: 2px solid var(--accent);
+  background: var(--surface);
+  font-weight: 700;
+}
+
+/* ---------- colunas que entram e saem ---------- */
+.dc-cols {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.dc-cols li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+}
+.dc-badge {
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  text-align: center;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+.dc-badge.in {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+.dc-badge.out {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+
+/* ---------- tabelas com destaque ---------- */
+.sd-table tr.dc-best td {
+  background: var(--accent-soft);
+  font-weight: 700;
+}
+.dc-verdict {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  padding: 1px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.dc-verdict.ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+.dc-verdict.warn {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+.dc-eq {
+  display: grid;
+  gap: 8px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+}
+.dc-eq code {
+  font-size: 1.02rem;
+}
+
+/* ---------- teste o modelo ---------- */
+.dc-try-kwh {
+  font-variant-numeric: tabular-nums;
+}
+.dc-try-chart {
+  min-width: 0;
+}
+.dc-try-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.dc-try-stats dt {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.dc-try-stats dd {
+  margin: 0;
+  font-family: var(--f-mono);
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .dc-cols li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .dc-badge {
+    justify-self: start;
+  }
+}

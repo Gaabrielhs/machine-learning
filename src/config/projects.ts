@@ -27,4 +27,13 @@ export const PROJECTS: Project[] = [
     algorithm: 'Árvore de decisão',
     task: 'Regressão',
   },
+  {
+    path: '/projetos/consumo-data-center',
+    title: 'Consumo de data centers de IA',
+    summary:
+      'Prevê a potência total de um data center nos próximos 7 dias a partir do histórico, do clima e da carga, com SARIMAX.',
+    stage: 'Trabalho 3',
+    algorithm: 'SARIMAX',
+    task: 'Série temporal',
+  },
 ]

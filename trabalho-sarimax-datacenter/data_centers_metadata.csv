@@ -1,0 +1,4 @@
+data_center_id,cooling_architecture,climate_profile,utc_offset_hours,installed_servers,server_idle_kw,server_max_kw,inlet_setpoint_c,data_origin
+DC-01,"air-cooled, chilled-water CRAH",cool-temperate continental (synthetic ambient profile),-5,16,2.3,10.2,24,synthetic
+DC-02,direct-to-chip liquid cooling with air-side assist,mild maritime (synthetic ambient profile),-8,15,2.4,10.2,25,synthetic
+DC-03,hybrid air cooling with economizer (free cooling),"warm arid, mild winters (synthetic ambient profile)",-7,14,2.2,9.8,25,synthetic

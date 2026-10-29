@@ -10,8 +10,8 @@ export function Projects() {
         <p className="eyebrow">Trabalhos da pós-graduação</p>
         <h1>Projetos</h1>
         <p className="lede">
-          Apresentações dos trabalhos com o dataset de sono e uso do celular. Cada uma tem o modo{' '}
-          <strong>Apresentar</strong>, que mostra uma seção por tela.
+          Apresentações dos trabalhos da disciplina: sono e uso do celular nas etapas 1 e 2, consumo de data centers na
+          etapa 3. Cada uma tem o modo <strong>Apresentar</strong>, que mostra uma seção por tela.
         </p>
       </section>
       <ul className="catalog" aria-label="Projetos">

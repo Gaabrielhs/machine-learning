@@ -69,6 +69,10 @@ describe('aplicação', () => {
       'href',
       '/projetos/horas-de-sono',
     )
+    expect(within(list).getByRole('link', { name: 'Consumo de data centers de IA' })).toHaveAttribute(
+      'href',
+      '/projetos/consumo-data-center',
+    )
   })
 
   it('mostra 404 para endereço desconhecido', async () => {

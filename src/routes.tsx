@@ -23,6 +23,13 @@ export const routes: RouteObject[] = [
           Component: (await import('./projects/sleep-hours/SleepHoursPage')).SleepHoursPage,
         }),
       },
+      // etapa 3 do trabalho: previsão de série temporal com SARIMAX
+      {
+        path: 'projetos/consumo-data-center',
+        lazy: async () => ({
+          Component: (await import('./projects/data-center/DataCenterPage')).DataCenterPage,
+        }),
+      },
       {
         path: ':algoId',
         lazy: async () => ({ Component: (await import('./pages/AlgorithmShell')).AlgorithmShell }),
